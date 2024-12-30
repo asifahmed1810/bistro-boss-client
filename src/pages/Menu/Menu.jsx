@@ -2,22 +2,38 @@ import React from 'react';
 import {Helmet } from 'react-helmet-async';
 import Cover from '../../shared/Cover';
 import menuImg from '../../assets/menu/banner3.jpg'
-import PopularSection from '../Home/PopularSection/PopularSection';
+import dessertImg from '../../assets/menu/dessert-bg.jpeg'
+import pizzaImg from '../../assets/menu/pizza-bg.jpg'
+import saladImg from '../../assets/menu/salad-bg.jpg'
+import soupImg from '../../assets/menu/soup-bg.jpg'
+import useMenu from '../../hooks/useMenu';
+import SectionTitle from '../../components/Sectiontitle/SectionTitle';
+import MenuCategory from '../../shared/MenuCategory';
+
 
 const Menu = () => {
+    const [menu]=useMenu();
+    const dessert=menu.filter(item=>item.category ==='dessert');
+    const soup=menu.filter(item=>item.category ==='soup');
+    const pizza=menu.filter(item=>item.category ==='pizza');
+    const salad=menu.filter(item=>item.category ==='salad');
+    const offered=menu.filter(item=>item.category ==='offered');
     return (
-        <div>
+        <div className=''>
             <Helmet>
                 <title>Bistro | Menu</title>
             </Helmet>
             <Cover img={menuImg} title={'our menu'}></Cover>
-            <PopularSection></PopularSection>
-            <Cover img={menuImg} title={'our menu'}></Cover>
-            <PopularSection></PopularSection>
-            <Cover img={menuImg} title={'our menu'}></Cover>
-            <PopularSection></PopularSection>
-            <Cover img={menuImg} title={'our menu'}></Cover>
-            <PopularSection></PopularSection>
+
+            <SectionTitle subheading={'Dont Miss'} heading={'Todays Offer'}></SectionTitle>
+            <MenuCategory items={offered}></MenuCategory>
+
+            <MenuCategory items={dessert} title={'Dessert'} img={dessertImg}></MenuCategory>
+            <MenuCategory items={pizza} title={'Pizza'} img={pizzaImg}></MenuCategory>
+            <MenuCategory items={salad} title={'Salad'} img={saladImg}></MenuCategory>
+            <MenuCategory items={soup} title={'Soup'} img={soupImg}></MenuCategory>
+           
+            
         </div>
     );
 };

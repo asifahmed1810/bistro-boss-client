@@ -24,6 +24,7 @@ const PopularSection = () => {
                     popular.map(item=><MenuItem key={item._id} item={item}></MenuItem>)
                 }
             </div>
+            <button className='btn btn-neutral mt-5'>View Full Menu</button>
         </section>
     );
 };
