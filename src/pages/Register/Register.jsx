@@ -8,12 +8,12 @@ import Swal from 'sweetalert2'
 const SignUp = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const { createuser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const onSubmit = data => {
         console.log(data);
-        createUser(data.email, data.password)
+        createuser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
