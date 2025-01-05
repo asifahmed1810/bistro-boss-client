@@ -14,7 +14,7 @@ const FoodCard = ({ item }) => {
     const navigate=useNavigate();
     const axiosSecure=useAxiosSecure();
 
-    const [refetch]=useCart();
+    const [cart,refetch]=useCart();
 
 
     const handleAddtoCart = () => {
@@ -38,7 +38,7 @@ const FoodCard = ({ item }) => {
                         timer: 1500
                       });
                     //   refetch cart to update the cart items count
-                    refetch()
+                    refetch();
                 }
             })
 
