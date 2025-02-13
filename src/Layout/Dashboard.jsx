@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaAd, FaBook, FaCalendar, FaHome, FaList, FaSearch, FaShoppingCart } from 'react-icons/fa';
+import { FaAd, FaBook, FaCalendar, FaHome, FaList, FaPaypal, FaSearch, FaShoppingCart } from 'react-icons/fa';
 import { FaEnvelope, FaUsers, FaUtensils } from 'react-icons/fa6';
 import { NavLink, Outlet } from 'react-router-dom';
 import useCart from '../hooks/useCart';
@@ -38,32 +38,38 @@ const Dashboard = () => {
                                 <NavLink to={'/dashboard/users'}><FaUsers></FaUsers>
                                     All Users</NavLink>
                             </li>
+                            <li>
+
+                                <NavLink to={'/dashboard/payment'}><FaPaypal></FaPaypal>
+                                    Payment</NavLink>
+                            </li>
                         </>
                             :
                             <>
                                 <li>
-
-                                    <NavLink to={'/dashboard/userHome'}><FaHome></FaHome> User Home</NavLink>
+                                    <NavLink to="/dashboard/userHome">
+                                        <FaHome></FaHome>
+                                        User Home</NavLink>
                                 </li>
                                 <li>
-
-                                    <NavLink to={'/dashboard/reservation'}><FaCalendar></FaCalendar>
-                                        Reservation</NavLink>
-                                </li>
-
-                                <li>
-
-                                    <NavLink to={'/dashboard/cart'}><FaShoppingCart></FaShoppingCart>My Cart</NavLink>
+                                    <NavLink to="/dashboard/history">
+                                        <FaCalendar></FaCalendar>
+                                        Not History</NavLink>
                                 </li>
                                 <li>
-
-                                    <NavLink to={'/dashboard/review'}><FaAd></FaAd>
-                                        Review</NavLink>
+                                    <NavLink to="/dashboard/cart">
+                                        <FaShoppingCart></FaShoppingCart>
+                                        My Cart ({cart.length})</NavLink>
                                 </li>
                                 <li>
-
-                                    <NavLink to={'/dashboard/myBooking'}><FaList></FaList>
-                                        My Booking</NavLink>
+                                    <NavLink to="/dashboard/review">
+                                        <FaAd></FaAd>
+                                        Add a Review</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/paymentHistory">
+                                        <FaList></FaList>
+                                        Real Payment History</NavLink>
                                 </li>
                             </>
 

@@ -3,12 +3,13 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, val
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { AuthContext } from '../../providers/AuthProvider';
+
 import SocialLogin from '../../components/SocialLogin/SocialLogin';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
 
-    const { userLogin } = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
     // const captchaRef = useRef(null);
     const [disabled, setDisabled] = useState(true);
     const location=useLocation();
@@ -29,7 +30,7 @@ const Login = () => {
         const password = form.password.value;
         console.log(email, password)
 
-        userLogin(email, password)
+        signIn(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user)

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useCart from '../../../hooks/useCart';
 import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
     const [cart,refetch] = useCart();
     const totalprice = cart.reduce((total, item) => total + item.price, 0);
+  
     const axiosSecure = useAxiosSecure();
 
     const handleDelete = (id) => {
@@ -46,7 +48,10 @@ const Cart = () => {
             <div className='flex justify-evenly mb-8'>
                 <h2 className='text-4xl'>Items:{cart.length}</h2>
                 <h2 className='text-4xl'>Total Price:{totalprice}</h2>
-                <button className='btn btn-neutral'>Pay</button>
+                { cart.length? 
+                    <Link to={'/dashboard/payment'}><button  className='btn btn-neutral'>Pay</button></Link>:<button disabled  className='btn btn-neutral'>Pay</button>
+
+                    }
             </div>
 
             <div className="overflow-x-auto">
