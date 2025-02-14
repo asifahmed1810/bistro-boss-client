@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { FaGoogle } from 'react-icons/fa6';
-import { AuthContext } from '../../providers/AuthProvider';
+import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from '../../Providers/AuthProvider';
 import useAxiosPublic from '../../hooks/useAxiosPublic';
 import { useNavigate } from 'react-router-dom';
 
@@ -28,7 +28,8 @@ const SocialLogin = () => {
             <div className='divider'></div>
             <div>
                 <button onClick={handleGoogleSignIn} className='btn'>
-                    <FaGoogle className='mr-2'></FaGoogle>
+                    
+                    <FcGoogle className='mr-1 text-xl' />
                     Google
                 </button>
             </div>
