@@ -20,6 +20,7 @@ import ManageItems from '../pages/Dashboard/ManageItems/ManageItems';
 import UpdateItem from '../pages/Dashboard/UpdateItem/UpdateItem';
 import Payment from '../pages/Dashboard/Payment/Payment';
 import PaymentHistory from '../pages/Dashboard/PaymentHistory/PaymentHistory';
+import Error from '../pages/Error/Error';
 
 
 const router = createBrowserRouter([
@@ -84,7 +85,7 @@ const router = createBrowserRouter([
         {
           path:'updateItem/:id',
           element:<AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/menu/${params.id}`)
+          loader: ({params}) => fetch(`https://bistro-boss-server-eight-pi.vercel.app/menu/${params.id}`)
         }
         ,
         {
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
           element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
         }
       ]
+    },
+    {
+      path:'*',
+      element:<Error></Error>
     }
   ]);
 

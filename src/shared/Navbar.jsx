@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../providers/AuthProvider';
+import { AuthContext } from '../Providers/AuthProvider';
 import { FaCartShopping } from "react-icons/fa6";
 import useCart from '../hooks/useCart';
 
@@ -16,7 +16,7 @@ const Navbar = () => {
         <li><Link to={'/'}>Home</Link></li>
         <li><Link to={'/menu'}>Our Menu</Link></li>
         <li><Link to={'/order/salad'}>Order</Link></li>
-        <li><Link to={'/secret'}>Secret Menu</Link></li>
+       
         <li><Link to={'/dashboard/cart'}>
             <button className="btn">
             <FaCartShopping />
@@ -24,15 +24,10 @@ const Navbar = () => {
             </button>
         </Link></li>
 
-        {
-            user ? <>
-                {/* <span>{user?.displayName}</span> */}
-                <button onClick={handleLogOut} className='btn btn-ghost'>LogOut</button>
-            </> : <> <li><Link to={'/login'}>Login</Link></li></>
-        }
+        
     </>
     return (
-        <div className="navbar fixed z-10 bg-opacity-30 bg-black text-white max-w-screen-xl mx-auto">
+        <div className="navbar fixed z-10 md:px-14 bg-opacity-30 bg-black text-white max-w-screen-xl mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -51,11 +46,11 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className="menu text-black menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <a className="btn btn-ghost text-xl">Bistro Boss</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -63,7 +58,12 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+            {
+            user ? <>
+                {/* <span>{user?.displayName}</span> */}
+                <button onClick={handleLogOut} className='btn'>LogOut</button>
+            </> : <> <Link to={'/login'} className='btn '>Login</Link></>
+        }
             </div>
         </div>
     );

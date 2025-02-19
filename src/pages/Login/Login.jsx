@@ -101,7 +101,7 @@ const Login = () => {
                         </div>
                     </form>
                     <div className='p-4'>
-                        <p><small>New Here?</small> <Link to={'/register'}>Create an Account</Link></p>
+                        <p><small>New Here?</small> <Link to={'/register'} className="font-bold">Create an Account</Link></p>
                         <SocialLogin></SocialLogin>
                     </div>
                 </div>
