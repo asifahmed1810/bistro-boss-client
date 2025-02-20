@@ -2,8 +2,8 @@
 ## Website Details:
 - **Website Name**: BistroBoss 
 - **Live Site URL**: https://bistro-boss-79537.web.app
-- **Organizer Username**: alif@gmail.com
-- **Organizer Password**: Alif1234@
+- **Admin Username**: alif@gmail.com
+- **Admin Password**: Alif1234@
 ---
 
 ## About the Website:
